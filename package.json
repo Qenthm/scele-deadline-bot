@@ -1,0 +1,19 @@
+{
+  "name": "scele-deadline-bot",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "check": "node --env-file=.env.local --import tsx src/run.ts",
+    "check:diff": "node --env-file=.env.local --import tsx src/run-diff.ts",
+    "list-courses": "node --env-file=.env.local --import tsx src/run.ts --list-courses",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@vercel/config": "^0.7.0",
+    "@vercel/node": "^3.2.24",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
