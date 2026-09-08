@@ -1,0 +1,44 @@
+name: SCELE deadline check
+
+on:
+  schedule:
+    # 00:00, 08:00, 16:00 UTC = 07:00, 15:00, 23:00 WIB
+    - cron: "0 0,8,16 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scele-deadline-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - run: npm ci
+
+      - name: Check for deadline changes
+        env:
+          SCELE_USERNAME: ${{ secrets.SCELE_USERNAME }}
+          SCELE_PASSWORD: ${{ secrets.SCELE_PASSWORD }}
+          MONITORED_COURSES: ${{ secrets.MONITORED_COURSES }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_USER_ID: ${{ secrets.DISCORD_USER_ID }}
+          DEADLINE_WINDOW_DAYS: "30"
+        run: node --import tsx src/run-diff.ts
+
+      - name: Commit updated state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state/seen-events.json
+          git diff --cached --quiet || git commit -m "chore: update tracked SCELE deadlines"
+          git push
