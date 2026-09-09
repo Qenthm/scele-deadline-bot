@@ -18,7 +18,7 @@ export interface DiffCheckResult {
 
 // The "only tell me what's new" mode: diffs this run's events against the state file
 // committed by the last run, and only posts to Discord if something actually changed.
-// Meant to be run often (e.g. 3x/day via GitHub Actions) without spamming the channel.
+// Meant to be run often (e.g. every 15 min via GitHub Actions) without spamming the channel.
 export async function runDiffCheck(): Promise<DiffCheckResult> {
   const baseUrl = process.env.SCELE_BASE_URL ?? "https://scele.cs.ui.ac.id";
   const username = requireEnv("SCELE_USERNAME");

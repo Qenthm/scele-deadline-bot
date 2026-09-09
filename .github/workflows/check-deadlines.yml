@@ -2,8 +2,9 @@ name: SCELE deadline check
 
 on:
   schedule:
-    # 00:00, 08:00, 16:00 UTC = 07:00, 15:00, 23:00 WIB
-    - cron: "0 0,8,16 * * *"
+    # Every 15 minutes, all day — GitHub Actions has no push/webhook option for this,
+    # so frequent polling is the closest we can get to an instant ping.
+    - cron: "*/15 * * * *"
   workflow_dispatch: {}
 
 permissions:
