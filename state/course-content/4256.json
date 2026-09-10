@@ -52,5 +52,17 @@
     "section": "Topic 3",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=223505"
+  },
+  "223632": {
+    "name": "Lab 3, 11 September 2026",
+    "section": "Topic 3",
+    "type": "forum",
+    "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=223632"
+  },
+  "223633": {
+    "name": "Link zoom lab",
+    "section": "Topic 3",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=223633"
   }
 }
