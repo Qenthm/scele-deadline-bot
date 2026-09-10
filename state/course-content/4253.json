@@ -1,0 +1,128 @@
+{
+  "222144": {
+    "name": "Announcements",
+    "section": "PBL-Pemrosesan Bahasa Lisan Gasal 2026/2027",
+    "type": "forum",
+    "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=222144"
+  },
+  "222145": {
+    "name": "BRP PBL 1-2026-2027",
+    "section": "PBL-Pemrosesan Bahasa Lisan Gasal 2026/2027",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222145"
+  },
+  "222146": {
+    "name": "Zoom PBL Gasal 2026-2027",
+    "section": "ZOOM KELAS DARING",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=222146"
+  },
+  "222153": {
+    "name": "Petunjuk Proyek Akhir",
+    "section": "PROYEK AKHIR",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222153"
+  },
+  "222154": {
+    "name": "Contoh 1: laporan proyek akhir - Cocosda 2024",
+    "section": "PROYEK AKHIR",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222154"
+  },
+  "222155": {
+    "name": "Contoh 2: Laporan Proyek Akhir - Cocosda 2025",
+    "section": "PROYEK AKHIR",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222155"
+  },
+  "222156": {
+    "name": "Contoh 3: Laporan Proyek Akhir - Cocosda 2025",
+    "section": "PROYEK AKHIR",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222156"
+  },
+  "222157": {
+    "name": "Contoh Judul Proyek Akhir Gasal 2024-2025",
+    "section": "PROYEK AKHIR",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222157"
+  },
+  "222165": {
+    "name": "Praktikum 1 - Automatic Speech Recognition",
+    "section": "PRAKTIKUM",
+    "type": "assign",
+    "url": "https://scele.cs.ui.ac.id/mod/assign/view.php?id=222165"
+  },
+  "222175": {
+    "name": "1a Introduction to Spoken Language Processing",
+    "section": "Introduction",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222175"
+  },
+  "222176": {
+    "name": "1b Introduction to Deep Learning",
+    "section": "Introduction",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222176"
+  },
+  "222177": {
+    "name": "1c Intro to Deep Learning - RNNs",
+    "section": "Introduction",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222177"
+  },
+  "222178": {
+    "name": "1d Intro to Deep Learning - Transformer",
+    "section": "Introduction",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222178"
+  },
+  "222179": {
+    "name": "2a Speech Sounds",
+    "section": "Speech Signal Processing",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222179"
+  },
+  "222180": {
+    "name": "2b Speech Signal Processing",
+    "section": "Speech Signal Processing",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222180"
+  },
+  "222181": {
+    "name": "2c Speech Representation",
+    "section": "Speech Signal Processing",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222181"
+  },
+  "222182": {
+    "name": "2a speech sound - ID",
+    "section": "Speech Signal Processing",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222182"
+  },
+  "222183": {
+    "name": "2b Speech Signal Processing - ID",
+    "section": "Speech Signal Processing",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222183"
+  },
+  "222184": {
+    "name": "2c Speech Representation - ID",
+    "section": "Speech Signal Processing",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222184"
+  },
+  "223020": {
+    "name": "Link Discord Pemrosesan Bahasa Lisan Semester Gasal 2026/2027",
+    "section": "PBL-Pemrosesan Bahasa Lisan Gasal 2026/2027",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=223020"
+  },
+  "223023": {
+    "name": "Pendaftaran Kelompok (Praktikum dan PA)",
+    "section": "PBL-Pemrosesan Bahasa Lisan Gasal 2026/2027",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=223023"
+  }
+}

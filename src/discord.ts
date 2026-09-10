@@ -1,5 +1,6 @@
+import type { CourseContentItem } from "./scele.js";
 import type { SceleEvent } from "./scele.js";
-import type { TrackedEvent } from "./state.js";
+import type { TrackedContentItem, TrackedEvent } from "./state.js";
 
 const MODULE_TIPS: Record<string, string> = {
   assign: "Submit your work before the deadline — check if late submissions are even accepted.",
@@ -93,6 +94,46 @@ export function buildRemovedEmbeds(
     color: 0x99aab5,
     url: `${baseUrl}/course/view.php?id=${previous.courseId}`,
     fields: [{ name: "Type", value: previous.modulename, inline: true }],
+  }));
+}
+
+export function buildContentAddedEmbeds(items: CourseContentItem[], courseFullname: string): DiscordEmbed[] {
+  return items.map((item) => ({
+    title: `🆕 ${item.name}`,
+    description: `**${courseFullname}**\n${item.section}`,
+    color: 0x5865f2,
+    url: item.url ?? undefined,
+    fields: [{ name: "Type", value: item.type, inline: true }],
+  }));
+}
+
+export function buildContentChangedEmbeds(
+  changes: { item: CourseContentItem; previous: TrackedContentItem }[],
+  courseFullname: string,
+): DiscordEmbed[] {
+  return changes.map(({ item, previous }) => ({
+    title: `✏️ Content updated — ${item.name}`,
+    description:
+      previous.name !== item.name
+        ? `**${courseFullname}**\nRenamed from "${previous.name}"\n${item.section}`
+        : `**${courseFullname}**\nMoved from "${previous.section}" to "${item.section}"`,
+    color: 0xfee75c,
+    url: item.url ?? undefined,
+    fields: [{ name: "Type", value: item.type, inline: true }],
+  }));
+}
+
+export function buildContentRemovedEmbeds(
+  removed: { cmid: number; previous: TrackedContentItem }[],
+  courseFullname: string,
+  courseViewUrl: string,
+): DiscordEmbed[] {
+  return removed.map(({ previous }) => ({
+    title: `🗑️ Removed — ${previous.name}`,
+    description: `**${courseFullname}**\nWas in "${previous.section}", no longer on the course page.`,
+    color: 0x99aab5,
+    url: courseViewUrl,
+    fields: [{ name: "Type", value: previous.type, inline: true }],
   }));
 }
 

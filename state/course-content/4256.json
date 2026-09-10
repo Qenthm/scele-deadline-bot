@@ -1,0 +1,56 @@
+{
+  "215183": {
+    "name": "Announcements",
+    "section": "General",
+    "type": "forum",
+    "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=215183"
+  },
+  "221953": {
+    "name": "Diskusi umum perkuliahan",
+    "section": "General",
+    "type": "forum",
+    "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=221953"
+  },
+  "221954": {
+    "name": "Cloud Environment",
+    "section": "Topic 1",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=221954"
+  },
+  "221955": {
+    "name": "Sheet pendaftaran AWS Academy untuk kuliah",
+    "section": "Topic 1",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=221955"
+  },
+  "221956": {
+    "name": "Lab 1, 28 Agustus 2026",
+    "section": "Topic 1",
+    "type": "forum",
+    "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=221956"
+  },
+  "222125": {
+    "name": "Silabus kuliah Komputasi Awan",
+    "section": "General",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222125"
+  },
+  "222896": {
+    "name": "Layanan Cloud",
+    "section": "Topic 2",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222896"
+  },
+  "223055": {
+    "name": "Lab 2, 4 September 2026",
+    "section": "Topic 2",
+    "type": "forum",
+    "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=223055"
+  },
+  "223505": {
+    "name": "Infrastructure as a Service",
+    "section": "Topic 3",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=223505"
+  }
+}

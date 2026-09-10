@@ -11,6 +11,13 @@ the same data behind the "Timeline" block — to get due dates. Each scheduled r
 result against the last-known state (committed to this repo as `state/seen-events.json`) and
 only messages Discord about what's new, moved, or removed.
 
+It also watches full course content (every page, file, and link — not just items with a due
+date) via Moodle's `core_course_get_contents` service, diffed per-course against
+`state/course-content/<courseId>.json`. This catches things the deadline-only Timeline view
+never surfaces, e.g. a new reading/lesson page with no due date attached. Set
+`WATCH_COURSE_CONTENT=false` to disable. A course's first-ever run just populates its state
+file without posting (otherwise the whole course would dump into Discord at once).
+
 ## 1. Local setup
 
 ```

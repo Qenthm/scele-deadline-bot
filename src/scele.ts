@@ -24,6 +24,14 @@ export interface SceleCourse {
   viewurl: string;
 }
 
+export interface CourseContentItem {
+  cmid: number;
+  name: string;
+  section: string;
+  type: string; // modname: "page", "url", "resource", "assign", ...
+  url: string | null;
+}
+
 export interface SceleEvent {
   id: number;
   name: string;
@@ -202,6 +210,66 @@ export class SceleClient {
       },
     }));
   }
+
+  // Flattens every activity/resource in a course (pages, files, links, assignments, ...)
+  // regardless of whether it has a due date. SCELE runs Moodle 3.11, where
+  // `core_course_get_contents` exists as a webservice function but isn't registered for the
+  // internal sesskey-authenticated ajax endpoint (`servicenotavailable`), and there's no
+  // `core_courseformat_get_state` either (that's Moodle 4.0+, server-rendered 3.11 has no
+  // client-side "state" to fetch). So this scrapes the same server-rendered course page a
+  // browser sees instead. Used for the "tell me about any content change" watch, as opposed
+  // to getUpcomingEvents()'s deadline-only view.
+  async getCourseContents(courseId: number): Promise<CourseContentItem[]> {
+    const res = await this.fetchRaw(`/course/view.php?id=${courseId}`);
+    this.absorbCookies(res);
+    if (res.status >= 400) throw new Error(`Failed to load course page for course ${courseId} (HTTP ${res.status})`);
+    return parseCourseContentHtml(await res.text());
+  }
+}
+
+// Section headings look like: <h3 id="sectionid-NNNN-title" class="sectionname ..."><span>NAME</span></h3>
+const SECTION_RE = /<li id="section-\d+" class="section[^"]*"[\s\S]{0,800}?<h3[^>]*class="[^"]*\bsectionname\b[^"]*"[^>]*>(?:<span>([^<]*)<\/span>)?/g;
+
+// Each activity is a non-nested <li ... id="module-CMID">...</li> (verified against live
+// SCELE course pages: no activity type — assign, resource, forum, page, url — nests another
+// <li> inside its own, so the first "</li>" after the opener is always its own closing tag).
+const ACTIVITY_RE = /<li class="activity ([\w-]+) modtype_[\w-]+[^"]*" id="module-(\d+)"[\s\S]*?<\/li>/g;
+
+// Activities without a direct link (e.g. "label" — a plain text/heading block with no
+// mod/*/view.php page of its own) are skipped: there's nothing to diff a URL/section move
+// against, and they're not what students think of as "course material".
+function parseCourseContentHtml(html: string): CourseContentItem[] {
+  const containerStart = html.indexOf('<div class="course-content">');
+  const container = containerStart === -1 ? html : html.slice(containerStart);
+
+  const sections: { index: number; name: string }[] = [];
+  for (const m of container.matchAll(SECTION_RE)) {
+    sections.push({ index: m.index, name: m[1] ? decodeHtmlEntities(m[1].trim()) : "General" });
+  }
+
+  const items: CourseContentItem[] = [];
+  for (const m of container.matchAll(ACTIVITY_RE)) {
+    const [block, modname, cmidStr] = m;
+    const hrefMatch = block.match(/<a class="aalink"[^>]*\shref="([^"]+)"/);
+    const nameMatch = block.match(/<span class="instancename">([^<]*)/);
+    if (!hrefMatch || !nameMatch) continue;
+
+    let sectionName = sections[0]?.name ?? "General";
+    for (const s of sections) {
+      if (s.index > m.index) break;
+      sectionName = s.name;
+    }
+
+    items.push({
+      cmid: Number(cmidStr),
+      name: decodeHtmlEntities(nameMatch[1].trim()),
+      section: sectionName,
+      type: modname,
+      url: decodeHtmlEntities(hrefMatch[1]),
+    });
+  }
+
+  return items;
 }
 
 export function matchCourses(

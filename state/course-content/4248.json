@@ -1,0 +1,56 @@
+{
+  "215175": {
+    "name": "Announcements",
+    "section": "General",
+    "type": "forum",
+    "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=215175"
+  },
+  "221048": {
+    "name": "BRP dan model compiler",
+    "section": "General",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=221048"
+  },
+  "221049": {
+    "name": "materi analisis leksikal",
+    "section": "topik 1: pengantar dan analisis leksikal",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=221049"
+  },
+  "221393": {
+    "name": "video manual model compiler berbasis web",
+    "section": "General",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=221393"
+  },
+  "222586": {
+    "name": "materi analisis sintak",
+    "section": "Topik 2: analisis sintak",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222586"
+  },
+  "222760": {
+    "name": "presentasi analisis leksikal, rabu 2 September",
+    "section": "topik 1: pengantar dan analisis leksikal",
+    "type": "assign",
+    "url": "https://scele.cs.ui.ac.id/mod/assign/view.php?id=222760"
+  },
+  "223297": {
+    "name": "zoom link",
+    "section": "General",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=223297"
+  },
+  "223536": {
+    "name": "wag tekomp26",
+    "section": "General",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=223536"
+  },
+  "223537": {
+    "name": "presentasi kelompok - operator precedence operator, senin 14 Sep jam 13.00 WIB",
+    "section": "Topik 2: analisis sintak",
+    "type": "assign",
+    "url": "https://scele.cs.ui.ac.id/mod/assign/view.php?id=223537"
+  }
+}

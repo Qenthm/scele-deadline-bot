@@ -1,0 +1,26 @@
+{
+  "215483": {
+    "name": "Announcements",
+    "section": "General",
+    "type": "forum",
+    "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=215483"
+  },
+  "222294": {
+    "name": "Slide 00: Introduction",
+    "section": "Slides",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222294"
+  },
+  "222295": {
+    "name": "Course Outline",
+    "section": "General",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222295"
+  },
+  "222998": {
+    "name": "Slide 01: Sifat-sifat Dasar Poligon [updated]",
+    "section": "Slides",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222998"
+  }
+}
