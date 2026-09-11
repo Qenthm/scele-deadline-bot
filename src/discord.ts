@@ -1,5 +1,6 @@
 import type { CourseContentItem } from "./scele.js";
 import type { SceleEvent } from "./scele.js";
+import type { TaggedForumDiscussion } from "./forum-diff.js";
 import type { TrackedContentItem, TrackedEvent } from "./state.js";
 
 const MODULE_TIPS: Record<string, string> = {
@@ -134,6 +135,27 @@ export function buildContentRemovedEmbeds(
     color: 0x99aab5,
     url: courseViewUrl,
     fields: [{ name: "Type", value: previous.type, inline: true }],
+  }));
+}
+
+function truncate(text: string, max: number): string {
+  if (text.length <= max) return text;
+  return `${text.slice(0, max - 1).trimEnd()}…`;
+}
+
+export function buildForumPostEmbeds(
+  posts: { discussion: TaggedForumDiscussion; body: string }[],
+  courseFullname: string,
+): DiscordEmbed[] {
+  return posts.map(({ discussion, body }) => ({
+    title: `📢 ${discussion.subject}`,
+    description: `**${courseFullname}** — ${discussion.forumName}\n${body ? truncate(body, 600) : "_(couldn't read the post body — check the link)_"}`,
+    color: 0x5865f2,
+    url: discussion.url,
+    fields: [
+      { name: "Posted by", value: discussion.authorName || "Unknown", inline: true },
+      { name: "Posted", value: formatDueDate(discussion.timestamp), inline: true },
+    ],
   }));
 }
 

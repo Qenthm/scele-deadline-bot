@@ -1,4 +1,4 @@
-import { SceleClient, matchCourses, type SceleEvent, type SceleCourse } from "./scele.js";
+import { SceleClient, matchCourses, belongsToMySection, type SceleEvent, type SceleCourse } from "./scele.js";
 import { buildEmbeds, postToDiscord } from "./discord.js";
 
 function requireEnv(name: string): string {
@@ -34,7 +34,9 @@ export async function runCheck(): Promise<CheckResult> {
 
   const allEvents = await client.getUpcomingEvents(windowDays);
   const matchedIds = new Set(matched.map((c) => c.id));
-  const events = allEvents.filter((e) => matchedIds.has(e.course.id)).sort((a, b) => a.timesort - b.timesort);
+  const events = allEvents
+    .filter((e) => matchedIds.has(e.course.id) && belongsToMySection(e.course.id, e.name))
+    .sort((a, b) => a.timesort - b.timesort);
 
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
   if (webhookUrl) {

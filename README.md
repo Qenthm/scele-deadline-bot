@@ -18,6 +18,24 @@ never surfaces, e.g. a new reading/lesson page with no due date attached. Set
 `WATCH_COURSE_CONTENT=false` to disable. A course's first-ever run just populates its state
 file without posting (otherwise the whole course would dump into Discord at once).
 
+On top of that, it watches each course's announcement-style forums (Announcements, Class
+Administration, a one-off "Lab N" notice, ...) for new discussion threads, diffed per-course
+against `state/forum-posts/<courseId>.json`. Unlike the plain content watch above, a new
+discussion also gets its opening post's body text pulled in and posted to Discord — this is
+what catches something like a lab instruction with no due date configured anywhere in
+Moodle, only mentioned in the announcement text. Graded "post your own discussion" forums
+(weekly participation forums where every student starts their own thread) are deliberately
+excluded — see `isAnnouncementForum()` in `src/scele.ts` — otherwise every classmate's
+submission would ping Discord. Set `WATCH_FORUM_POSTS=false` to disable (implied by
+`WATCH_COURSE_CONTENT=false`, since it reuses that loop's course-content fetch). Same
+first-run-is-silent behavior as the content watch.
+
+**Section filtering**: a course that runs parallel sections (e.g. Komputer & Masyarakat's
+A/B/C/D) posts near-duplicate items per section. `belongsToMySection()` in `src/scele.ts`
+keeps only the student's own section — add an entry to the `MY_SECTION` map there for any
+other course that needs it. Applies to Timeline events, course content, and forum posts
+alike; anything without a "SECTION X:"-style tag in its name is shared and always kept.
+
 ## 1. Local setup
 
 ```

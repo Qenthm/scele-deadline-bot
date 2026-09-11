@@ -32,6 +32,53 @@ export interface CourseContentItem {
   url: string | null;
 }
 
+export interface ForumDiscussion {
+  discussionId: number;
+  subject: string;
+  authorName: string;
+  timestamp: number; // unix seconds, when the discussion was started
+  url: string;
+}
+
+// Some courses (e.g. Komputer & Masyarakat) run parallel sections (A/B/C/D, sometimes
+// combined as "A & B") that each post near-identical items — only the student's own
+// section is actually relevant. The lecturer marks which section an item belongs to by
+// putting "SECTION <letters>" (or the abbreviation "SECT") at the very front of its name,
+// but inconsistently: colon, dash, or nothing as the separator, "&"/"and"/"," between
+// combined letters (see state/course-content/4234.json for the range of real examples).
+// An item with no such tag at all applies to everyone and always passes through.
+const SECTION_TAG_RE = /^sect(?:ion)?\s+([a-z](?:\s*(?:&|and|,)\s*[a-z])*)\b\s*[:-]?/i;
+
+// Course id -> the student's own section letter. Add an entry here for any other course
+// that splits items by section the same way.
+const MY_SECTION: Record<number, string> = {
+  4234: "D", // [Reg] Komputer & Masyarakat — I'm in section D
+};
+
+export function belongsToMySection(courseId: number, name: string): boolean {
+  const mySection = MY_SECTION[courseId];
+  if (!mySection) return true;
+  const tag = name.match(SECTION_TAG_RE)?.[1];
+  if (!tag) return true;
+  const letters: string[] = tag.toUpperCase().match(/[A-Z]/g) ?? [];
+  return letters.includes(mySection);
+}
+
+// A forum where students each start their own new discussion as coursework (a weekly
+// graded "post your own topic" forum) produces a fresh discussion every few days from
+// routine classmate activity — not worth a ping. An announcement forum ("Announcements",
+// "Class Administration", a one-off "Lab N" notice) only ever gets new discussions from
+// the teacher, so those stay watched. Keyed by course id, matched by substring against the
+// forum's name — add an entry here if another course's participation forums slip through.
+const PARTICIPATION_FORUM_PATTERNS: Record<number, RegExp> = {
+  4234: /discussion forum/i, // [Reg] Komputer & Masyarakat — weekly graded discussion forums
+};
+
+export function isAnnouncementForum(courseId: number, forumName: string): boolean {
+  const pattern = PARTICIPATION_FORUM_PATTERNS[courseId];
+  return !pattern || !pattern.test(forumName);
+}
+
 export interface SceleEvent {
   id: number;
   name: string;
@@ -225,6 +272,27 @@ export class SceleClient {
     if (res.status >= 400) throw new Error(`Failed to load course page for course ${courseId} (HTTP ${res.status})`);
     return parseCourseContentHtml(await res.text());
   }
+
+  // Lists the discussion threads in one forum activity (an "Announcements" forum, a
+  // per-topic "Lab N" forum, etc). Same scraping approach as getCourseContents() and for
+  // the same reason: no forum webservice is registered for the sesskey ajax endpoint on
+  // this Moodle version. Used to catch things a due-date-only Timeline never surfaces —
+  // announcements, "class moves online today" notices, a lab posted with no due date set.
+  async getForumDiscussions(forumCmid: number): Promise<ForumDiscussion[]> {
+    const res = await this.fetchRaw(`/mod/forum/view.php?id=${forumCmid}`);
+    this.absorbCookies(res);
+    if (res.status >= 400) throw new Error(`Failed to load forum page for cmid ${forumCmid} (HTTP ${res.status})`);
+    return parseForumDiscussionListHtml(await res.text(), this.baseUrl);
+  }
+
+  // Fetches just the opening post's body text of one discussion, plain-text (tags
+  // stripped). Only called for discussions not already in state, so this is cheap.
+  async getDiscussionBody(discussionId: number): Promise<string> {
+    const res = await this.fetchRaw(`/mod/forum/discuss.php?d=${discussionId}`);
+    this.absorbCookies(res);
+    if (res.status >= 400) throw new Error(`Failed to load discussion ${discussionId} (HTTP ${res.status})`);
+    return parseFirstPostBody(await res.text());
+  }
 }
 
 // Section headings look like: <h3 id="sectionid-NNNN-title" class="sectionname ..."><span>NAME</span></h3>
@@ -270,6 +338,62 @@ function parseCourseContentHtml(html: string): CourseContentItem[] {
   }
 
   return items;
+}
+
+// Each discussion row looks like:
+// <tr class="discussion" data-region="discussion-list-item" data-discussionid="62895" ...>
+//   <a ... href=".../discuss.php?d=62895" title="Lab 3, 11 September 2026" ...>
+//   ... <div class="mb-1 line-height-3 text-truncate">RIZAL FATHONI AJI -</div>
+//   ... <time id="time-created-62895" ... data-timestamp="1789080225" ...>
+// (verified against live SCELE forum pages). Split into per-row chunks first, then pull
+// each field out of its own chunk — safer than one long regex spanning the whole table.
+const DISCUSSION_ROW_RE = /<tr class="discussion"[\s\S]*?(?=<tr class="discussion"|<\/tbody>)/g;
+const DISCUSSION_ID_RE = /data-discussionid="(\d+)"/;
+const DISCUSSION_SUBJECT_RE = /discuss\.php\?d=\d+"[^>]*title="([^"]*)"/;
+const DISCUSSION_AUTHOR_RE = /class="mb-1 line-height-3 text-truncate">([^<]*)<\/div>/;
+const DISCUSSION_TIME_RE = /data-timestamp="(\d+)"/;
+
+function parseForumDiscussionListHtml(html: string, baseUrl: string): ForumDiscussion[] {
+  const bodyStart = html.indexOf("<tbody>");
+  const container = bodyStart === -1 ? html : html.slice(bodyStart);
+
+  const discussions: ForumDiscussion[] = [];
+  for (const rowMatch of container.matchAll(DISCUSSION_ROW_RE)) {
+    const row = rowMatch[0];
+    const id = row.match(DISCUSSION_ID_RE)?.[1];
+    const subject = row.match(DISCUSSION_SUBJECT_RE)?.[1];
+    const author = row.match(DISCUSSION_AUTHOR_RE)?.[1];
+    const time = row.match(DISCUSSION_TIME_RE)?.[1];
+    if (!id || !subject || !time) continue;
+
+    discussions.push({
+      discussionId: Number(id),
+      subject: decodeHtmlEntities(subject.trim()),
+      authorName: author ? decodeHtmlEntities(author.trim()) : "",
+      timestamp: Number(time),
+      url: `${baseUrl}/mod/forum/discuss.php?d=${id}`,
+    });
+  }
+
+  return discussions;
+}
+
+// The opening post's body sits in <div id="post-content-<id>" class="post-content-container">
+// ...</div>, immediately followed by the post-actions toolbar
+// (<div class="d-flex flex-wrap">) — used as the closing boundary instead of trying to
+// balance nested divs, since a post body can itself contain arbitrary markup.
+const FIRST_POST_BODY_RE = /<div[^>]*class="post-content-container"[^>]*>([\s\S]*?)<div class="d-flex flex-wrap">/;
+
+function parseFirstPostBody(html: string): string {
+  const raw = html.match(FIRST_POST_BODY_RE)?.[1];
+  if (!raw) return "";
+  const text = raw
+    .replace(/\r/g, "")
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/p>/gi, "\n")
+    .replace(/<[^>]+>/g, "")
+    .trim();
+  return decodeHtmlEntities(text).replace(/\n{3,}/g, "\n\n");
 }
 
 export function matchCourses(

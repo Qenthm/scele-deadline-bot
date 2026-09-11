@@ -51,3 +51,23 @@ export function loadContentState(path: string): CourseContentState {
 export function saveContentState(path: string, state: CourseContentState): void {
   saveJson(path, state);
 }
+
+export interface TrackedForumPost {
+  subject: string;
+  authorName: string;
+  timestamp: number;
+  forumName: string;
+  forumCmid: number;
+}
+
+// Keyed by discussion id. One file per course, same reasoning as CourseContentState —
+// covers every forum in that course, discussion ids are already globally unique.
+export type ForumPostState = Record<string, TrackedForumPost>;
+
+export function loadForumState(path: string): ForumPostState {
+  return loadJson(path, {});
+}
+
+export function saveForumState(path: string, state: ForumPostState): void {
+  saveJson(path, state);
+}
