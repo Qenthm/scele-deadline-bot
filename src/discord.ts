@@ -185,7 +185,9 @@ async function postMessage(webhookUrl: string, payload: Record<string, unknown>)
 }
 
 // One Discord message per deadline (plus a short summary message up front) — easier to
-// read/react to on mobile than one message packed with several embeds.
+// read/react to on mobile than one message packed with several embeds. Only the summary
+// message carries the @mention: pinging on every single embed too (the old behavior) means
+// one run with several changes fires several phone notifications back to back.
 export async function postToDiscord(
   webhookUrl: string,
   summary: string,
@@ -200,10 +202,6 @@ export async function postToDiscord(
 
   if (summary) await postMessage(webhookUrl, { content: `${mention}${summary}`, allowed_mentions });
   for (const embed of embeds) {
-    await postMessage(webhookUrl, {
-      content: mention || undefined,
-      embeds: [embed],
-      allowed_mentions,
-    });
+    await postMessage(webhookUrl, { embeds: [embed], allowed_mentions });
   }
 }
