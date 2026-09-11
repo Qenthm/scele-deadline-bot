@@ -143,10 +143,28 @@
     "type": "forum",
     "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=223489"
   },
+  "223493": {
+    "name": "SECTION A New group list",
+    "section": "Week 4 - 14/16 Sep 2026: On the historical development of our technology",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=223493"
+  },
+  "223494": {
+    "name": "SECTION B New group list",
+    "section": "Week 4 - 14/16 Sep 2026: On the historical development of our technology",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=223494"
+  },
   "223518": {
     "name": "Sect A&B: Task on the lesson learned 9 Sep 2026",
     "section": "Week 3 - 07/09 Sep 2026: Ethics in our field of computer science (cont'd)",
     "type": "page",
     "url": "https://scele.cs.ui.ac.id/mod/page/view.php?id=223518"
+  },
+  "223634": {
+    "name": "Sect A & B: Task for the new group 9 Sep 2026",
+    "section": "Week 4 - 14/16 Sep 2026: On the historical development of our technology",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=223634"
   }
 }
