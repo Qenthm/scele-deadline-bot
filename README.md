@@ -101,6 +101,11 @@ owns scheduling, so running both would double-post. Trigger a manual full report
 curl -H "Authorization: Bearer <your CRON_SECRET>" https://<your-project>.vercel.app/api/check-deadlines
 ```
 
+Or just open **`https://<your-project>.vercel.app/deadlines?key=<your CRON_SECRET>`** in a
+browser — a live-rendered page instead of raw JSON, good for bookmarking or saving as a
+phone home-screen shortcut. Same `runCheck()` call underneath (so it also posts the usual
+report to Discord on every load), fetched fresh from SCELE on each request — no caching.
+
 ## Notes / limitations
 
 - **Course matching** is by numeric id (exact) or substring against full/short name — check
