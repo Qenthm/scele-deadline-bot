@@ -64,5 +64,17 @@
     "section": "Topic 3",
     "type": "url",
     "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=223633"
+  },
+  "223641": {
+    "name": "Link OpenNebula MiniOne",
+    "section": "Topic 3",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=223641"
+  },
+  "223642": {
+    "name": "Rekaman lab",
+    "section": "Topic 3",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=223642"
   }
 }
