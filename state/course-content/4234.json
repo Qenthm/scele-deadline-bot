@@ -76,5 +76,29 @@
     "section": "Week 3 - 07/09 Sep 2026: Ethics in our field of computer science (cont'd)",
     "type": "assign",
     "url": "https://scele.cs.ui.ac.id/mod/assign/view.php?id=223719"
+  },
+  "223787": {
+    "name": "SECTION D: Discussion Forum Week 4",
+    "section": "Week 4 - 14/16 Sep 2026: On the historical development of our technology",
+    "type": "forum",
+    "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=223787"
+  },
+  "223824": {
+    "name": "FOR ALL SECTIONS: Code of Ethics-Fasilkom Student",
+    "section": "Week 3 - 07/09 Sep 2026: Ethics in our field of computer science (cont'd)",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=223824"
+  },
+  "223825": {
+    "name": "Class session 1 - 14 Sep 2026",
+    "section": "Week 4 - 14/16 Sep 2026: On the historical development of our technology",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=223825"
+  },
+  "223826": {
+    "name": "Class session 2 - 14 Sep 2026",
+    "section": "Week 4 - 14/16 Sep 2026: On the historical development of our technology",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=223826"
   }
 }
