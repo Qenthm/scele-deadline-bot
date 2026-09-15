@@ -79,6 +79,39 @@ export function isAnnouncementForum(courseId: number, forumName: string): boolea
   return !pattern || !pattern.test(forumName);
 }
 
+// Some courses never put a due date on Moodle's calendar at all — the "deadline" only
+// exists as plain text in a forum announcement. Komputasi Awan announces each week's lab
+// as a new "Lab N, <date>" forum (no assignment/submission page), with the unwritten but
+// consistent course rule that it's due the following Monday 23:59 WIB. Keyed by course id,
+// matched by forum name — add an entry here for another course that follows the same
+// "new forum post = implicit deadline" pattern.
+const LAB_DEADLINE_PATTERNS: Record<number, RegExp> = {
+  4256: /^lab\s*\d+/i, // [Reg] Komputasi Awan — "Lab N, DD Month YYYY" forums
+};
+
+export function isLabDeadlinePost(courseId: number, forumName: string): boolean {
+  const pattern = LAB_DEADLINE_PATTERNS[courseId];
+  return Boolean(pattern?.test(forumName));
+}
+
+const WIB_OFFSET_SECONDS = 7 * 3600;
+
+// Derives "the following Monday, 23:59 WIB" from a lab post's own timestamp, since that's
+// the only place the deadline exists for courses in LAB_DEADLINE_PATTERNS. If the post
+// itself landed on a Monday, that's not "the following Monday" — roll a full week ahead
+// instead of treating it as due same-day.
+export function deriveLabDeadline(postTimestampUnix: number): number {
+  const wibShifted = new Date((postTimestampUnix + WIB_OFFSET_SECONDS) * 1000);
+  const year = wibShifted.getUTCFullYear();
+  const month = wibShifted.getUTCMonth();
+  const day = wibShifted.getUTCDate();
+  const weekday = wibShifted.getUTCDay(); // 0=Sun..6=Sat, WIB-local since we shifted first
+
+  const daysAhead = ((1 - weekday + 7) % 7) || 7;
+  const deadlineWibAsUtcMs = Date.UTC(year, month, day + daysAhead, 23, 59, 0);
+  return Math.floor(deadlineWibAsUtcMs / 1000) - WIB_OFFSET_SECONDS;
+}
+
 export interface SceleEvent {
   id: number;
   name: string;

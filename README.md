@@ -30,11 +30,28 @@ submission would ping Discord. Set `WATCH_FORUM_POSTS=false` to disable (implied
 `WATCH_COURSE_CONTENT=false`, since it reuses that loop's course-content fetch). Same
 first-run-is-silent behavior as the content watch.
 
+It also sends a one-time **"due soon" reminder** ping for each deadline as it enters the
+last `DEADLINE_REMINDER_DAYS` days (default 2) before its due date — independent of the
+new/moved/removed diff above, so it fires even on a run where nothing changed. Tracked per
+event id in `state/reminded-deadlines.json` so it only pings once per deadline rather than
+on every run while it sits inside the window. Unlike the content/forum watches, there's no
+"first run silent" behavior here: a deadline that's already due soon the first time this
+runs is exactly what's worth pinging about.
+
 **Section filtering**: a course that runs parallel sections (e.g. Komputer & Masyarakat's
 A/B/C/D) posts near-duplicate items per section. `belongsToMySection()` in `src/scele.ts`
 keeps only the student's own section — add an entry to the `MY_SECTION` map there for any
 other course that needs it. Applies to Timeline events, course content, and forum posts
 alike; anything without a "SECTION X:"-style tag in its name is shared and always kept.
+
+**Deadlines with no calendar entry**: some courses never put a due date on Moodle's calendar
+at all. Komputasi Awan announces each week's lab only as a forum post ("Lab N, <date>"), due
+the following Monday 23:59 WIB by course convention — there's no assignment/quiz object to
+read a due date from. `LAB_DEADLINE_PATTERNS` in `src/scele.ts` matches forums like that per
+course id; `deriveLabDeadline()` computes the Monday deadline from the post's own timestamp,
+and the result is merged into the same event list as real Timeline deadlines — so it gets a
+"new deadline" ping, due-soon reminders, and moved/cancelled detection exactly like any other
+assignment. Add an entry there for another course that announces deadlines the same way.
 
 ## 1. Local setup
 
@@ -111,8 +128,10 @@ report to Discord on every load), fetched fresh from SCELE on each request — n
 - **Course matching** is by numeric id (exact) or substring against full/short name — check
   `npm run list-courses` if a course silently doesn't match.
 - **What counts as a deadline**: anything Moodle's Timeline API surfaces — assignments,
-  quizzes, and other activities with a due/close date. It won't catch a deadline mentioned
-  only in an announcement's text.
+  quizzes, and other activities with a due/close date — plus any course listed in
+  `LAB_DEADLINE_PATTERNS` (`src/scele.ts`), whose deadline is derived from a forum post
+  instead. A deadline mentioned only in an announcement's text otherwise won't be caught
+  unless that course is added to that map.
 - **"Removed/cancelled" detection**: an event only counts as removed if it was still in the
   future last time it was seen — one that simply passed its due date and fell out of the
   window is not flagged.

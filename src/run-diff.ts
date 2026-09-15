@@ -1,5 +1,13 @@
 import { existsSync } from "node:fs";
-import { SceleClient, matchCourses, belongsToMySection, isAnnouncementForum } from "./scele.js";
+import {
+  SceleClient,
+  matchCourses,
+  belongsToMySection,
+  isAnnouncementForum,
+  isLabDeadlinePost,
+  deriveLabDeadline,
+  type SceleEvent,
+} from "./scele.js";
 import {
   buildEmbeds,
   buildChangedEmbeds,
@@ -11,7 +19,16 @@ import {
   postToDiscord,
   type DiscordEmbed,
 } from "./discord.js";
-import { loadState, saveState, loadContentState, saveContentState, loadForumState, saveForumState } from "./state.js";
+import {
+  loadState,
+  saveState,
+  loadContentState,
+  saveContentState,
+  loadForumState,
+  saveForumState,
+  loadReminderState,
+  saveReminderState,
+} from "./state.js";
 import { diffEvents } from "./diff.js";
 import { diffCourseContent } from "./content-diff.js";
 import { diffForumDiscussions, type TaggedForumDiscussion } from "./forum-diff.js";
@@ -32,6 +49,7 @@ export interface DiffCheckResult {
   contentRemoved: number;
   forumPostsAdded: number;
   forumPostsRemoved: number;
+  reminded: number;
 }
 
 // The "only tell me what's new" mode: diffs this run's events against the state file
@@ -56,30 +74,11 @@ export async function runDiffCheck(): Promise<DiffCheckResult> {
   const client = new SceleClient(baseUrl);
   await client.login(username, password);
 
+  const nowUnix = Math.floor(Date.now() / 1000);
+
   const allCourses = await client.getEnrolledCourses();
   const { matched } = monitored.length ? matchCourses(monitored, allCourses) : { matched: allCourses };
   const matchedIds = new Set(matched.map((c) => c.id));
-
-  const allEvents = await client.getUpcomingEvents(windowDays);
-  const events = allEvents
-    .filter((e) => matchedIds.has(e.course.id) && belongsToMySection(e.course.id, e.name))
-    .sort((a, b) => a.timesort - b.timesort);
-
-  // Drop any previously-tracked event that the section filter would now reject too —
-  // otherwise it'd look like it just got cancelled (missing from `events`) instead of
-  // being filtered out on purpose, and diffEvents() would report a spurious "removed".
-  const previousStateRaw = loadState(statePath);
-  const previousState = Object.fromEntries(
-    Object.entries(previousStateRaw).filter(([, v]) => belongsToMySection(v.courseId, v.name)),
-  );
-  const nowUnix = Math.floor(Date.now() / 1000);
-  const { added, changed, removed, newState } = diffEvents(previousState, events, nowUnix);
-
-  saveState(statePath, newState);
-
-  console.log(
-    `Diff: +${added.length} new, ~${changed.length} moved, -${removed.length} removed/cancelled (${events.length} total upcoming)`,
-  );
 
   // Full course-content watch (every page/file/link, not just items with a due date) —
   // same MONITORED_COURSES list, one state file per course so a change to one course
@@ -100,6 +99,13 @@ export async function runDiffCheck(): Promise<DiffCheckResult> {
   const forumEmbeds: DiscordEmbed[] = [];
   let forumPostsAdded = 0;
   let forumPostsRemoved = 0;
+
+  // Synthetic deadlines for courses in LAB_DEADLINE_PATTERNS (see scele.ts) — these never
+  // appear in Moodle's own calendar, only as a forum post, so they're derived here (from
+  // the `discussions` this course's forum-post watch already fetched below) and merged into
+  // `events` below rather than coming from getUpcomingEvents(). Requires watchForumPosts —
+  // without it there are no discussions to derive a deadline from.
+  const labDeadlineEvents: SceleEvent[] = [];
 
   if (watchContent) {
     for (const course of matched) {
@@ -146,6 +152,23 @@ export async function runDiffCheck(): Promise<DiffCheckResult> {
           }
         }
 
+        for (const d of discussions) {
+          if (!isLabDeadlinePost(course.id, d.forumName)) continue;
+          const timesort = deriveLabDeadline(d.timestamp);
+          if (timesort <= nowUnix || timesort > nowUnix + windowDays * 86400) continue;
+          labDeadlineEvents.push({
+            id: -d.discussionId, // negative: distinct id space from real Moodle calendar events
+            name: `${d.subject} is due`,
+            modulename: "lab",
+            eventtype: "due",
+            timesort,
+            overdue: false,
+            actionName: null,
+            actionUrl: d.url,
+            course: { id: course.id, fullname: course.fullname, shortname: course.shortname },
+          });
+        }
+
         const previousForumStateRaw = loadForumState(forumPath);
         const previousForumState = Object.fromEntries(
           Object.entries(previousForumStateRaw).filter(([, v]) => isAnnouncementForum(course.id, v.forumName)),
@@ -170,6 +193,60 @@ export async function runDiffCheck(): Promise<DiffCheckResult> {
         if (!isFirstForumRun) forumPostsRemoved += forumDiff.removed.length;
       }
     }
+  }
+
+  const allEvents = await client.getUpcomingEvents(windowDays);
+  const events = allEvents
+    .filter((e) => matchedIds.has(e.course.id) && belongsToMySection(e.course.id, e.name))
+    .concat(labDeadlineEvents)
+    .sort((a, b) => a.timesort - b.timesort);
+
+  // Drop any previously-tracked event that the section filter would now reject too —
+  // otherwise it'd look like it just got cancelled (missing from `events`) instead of
+  // being filtered out on purpose, and diffEvents() would report a spurious "removed".
+  const previousStateRaw = loadState(statePath);
+  const previousState = Object.fromEntries(
+    Object.entries(previousStateRaw).filter(([, v]) => belongsToMySection(v.courseId, v.name)),
+  );
+  const { added, changed, removed, newState } = diffEvents(previousState, events, nowUnix);
+
+  saveState(statePath, newState);
+
+  console.log(
+    `Diff: +${added.length} new, ~${changed.length} moved, -${removed.length} removed/cancelled (${events.length} total upcoming, ${labDeadlineEvents.length} derived from lab posts)`,
+  );
+
+  // "Due soon" reminder: pings again as a deadline approaches, independent of whether
+  // anything actually changed — unlike the diff above, which only reports new/moved/removed
+  // items. Keyed by event id in its own state file so a deadline sitting inside the window
+  // across many 15-min runs only pings once. No "first run silent" guard here (unlike the
+  // content/forum watches above): a deadline that's already due soon the first time this
+  // runs is exactly the thing worth pinging about immediately.
+  const reminderDays = Number(process.env.DEADLINE_REMINDER_DAYS ?? 2);
+  const reminderPath = process.env.REMINDER_STATE_FILE_PATH ?? "state/reminded-deadlines.json";
+  const previousReminders = loadReminderState(reminderPath);
+  const reminderWindowSeconds = reminderDays * 86400;
+
+  const dueSoon = events.filter((e) => {
+    const secondsLeft = e.timesort - nowUnix;
+    return secondsLeft > 0 && secondsLeft <= reminderWindowSeconds && !previousReminders[String(e.id)];
+  });
+
+  // Carry forward reminders for events still upcoming (so a re-run doesn't re-ping them),
+  // dropping ones that fell out of `events` entirely (passed, cancelled, or filtered out).
+  const upcomingIds = new Set(events.map((e) => String(e.id)));
+  const newReminderState: typeof previousReminders = {};
+  for (const [id, prev] of Object.entries(previousReminders)) {
+    if (upcomingIds.has(id)) newReminderState[id] = prev;
+  }
+  for (const e of dueSoon) newReminderState[String(e.id)] = { name: e.name, timesort: e.timesort };
+  saveReminderState(reminderPath, newReminderState);
+
+  console.log(`Reminders: ${dueSoon.length} newly within ${reminderDays} day(s) of their deadline`);
+
+  if (dueSoon.length && webhookUrl) {
+    const summary = `⏰ **Deadline reminder** — due within ${reminderDays} day(s): ${dueSoon.map((e) => e.name).join(", ")}`;
+    await postToDiscord(webhookUrl, summary, buildEmbeds(dueSoon), process.env.DISCORD_USER_ID);
   }
 
   const totalChanges =
@@ -216,6 +293,7 @@ export async function runDiffCheck(): Promise<DiffCheckResult> {
     contentRemoved,
     forumPostsAdded,
     forumPostsRemoved,
+    reminded: dueSoon.length,
   };
 }
 

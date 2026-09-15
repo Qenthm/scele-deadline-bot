@@ -71,3 +71,21 @@ export function loadForumState(path: string): ForumPostState {
 export function saveForumState(path: string, state: ForumPostState): void {
   saveJson(path, state);
 }
+
+export interface RemindedEvent {
+  name: string;
+  timesort: number;
+}
+
+// Keyed by event id (same key as EventState) — records which deadlines already got a
+// "due soon" reminder ping, so a deadline sitting inside the reminder window for several
+// runs in a row (checked every 15 min) only pings once instead of on every run.
+export type ReminderState = Record<string, RemindedEvent>;
+
+export function loadReminderState(path: string): ReminderState {
+  return loadJson(path, {});
+}
+
+export function saveReminderState(path: string, state: ReminderState): void {
+  saveJson(path, state);
+}

@@ -10,6 +10,7 @@ const MODULE_TIPS: Record<string, string> = {
   workshop: "Submit your work and/or complete peer assessment before the phase deadline.",
   choice: "Make your selection before the activity closes.",
   feedback: "Fill in the feedback/survey before it closes.",
+  lab: "No submission page for this one — read the forum post for what's expected, then get it done before the deadline.",
 };
 
 function urgencyColor(hoursLeft: number): number {
