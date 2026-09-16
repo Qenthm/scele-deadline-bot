@@ -59,6 +59,12 @@
     "type": "assign",
     "url": "https://scele.cs.ui.ac.id/mod/assign/view.php?id=222167"
   },
+  "222171": {
+    "name": "Mini Kuis 1",
+    "section": "Mini Kuis",
+    "type": "quiz",
+    "url": "https://scele.cs.ui.ac.id/mod/quiz/view.php?id=222171"
+  },
   "222175": {
     "name": "1a Introduction to Spoken Language Processing",
     "section": "Introduction",
@@ -118,6 +124,30 @@
     "section": "Speech Signal Processing",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222184"
+  },
+  "222185": {
+    "name": "3a ASR early model",
+    "section": "Automatic Speech Recognition (ASR)",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222185"
+  },
+  "222186": {
+    "name": "3b ASR NN model",
+    "section": "Automatic Speech Recognition (ASR)",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222186"
+  },
+  "222187": {
+    "name": "3c ASR state-of-the-art",
+    "section": "Automatic Speech Recognition (ASR)",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222187"
+  },
+  "222188": {
+    "name": "3d ASR for non-English",
+    "section": "Automatic Speech Recognition (ASR)",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222188"
   },
   "223020": {
     "name": "Link Discord Pemrosesan Bahasa Lisan Semester Gasal 2026/2027",
