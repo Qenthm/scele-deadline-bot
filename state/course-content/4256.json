@@ -82,5 +82,17 @@
     "section": "Topic 4",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=223898"
+  },
+  "224008": {
+    "name": "Lab 4, 18 September 2026",
+    "section": "Topic 4",
+    "type": "forum",
+    "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=224008"
+  },
+  "224026": {
+    "name": "Rekaman zoom lab",
+    "section": "Topic 4",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224026"
   }
 }
