@@ -19,5 +19,19 @@
     "courseFullname": "[Reg] Komputer & Masyarakat (A,B,C,D) Gasal 2026/2027",
     "modulename": "assign",
     "timesort": 1790528340
+  },
+  "113320": {
+    "name": "PR1 individue - due 30 Sep pukul 14.00 WIB is due",
+    "courseId": 4248,
+    "courseFullname": "[Reg] Teknik Kompilator (A) Gasal 2026/2027",
+    "modulename": "assign",
+    "timesort": 1790751600
+  },
+  "113326": {
+    "name": "PR2 - kelompok, Due 7 Oktober jam 14.00 WIB is due",
+    "courseId": 4248,
+    "courseFullname": "[Reg] Teknik Kompilator (A) Gasal 2026/2027",
+    "modulename": "assign",
+    "timesort": 1791356400
   }
 }

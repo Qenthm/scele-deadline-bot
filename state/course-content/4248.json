@@ -52,5 +52,35 @@
     "section": "Topik 2: analisis sintak",
     "type": "assign",
     "url": "https://scele.cs.ui.ac.id/mod/assign/view.php?id=223537"
+  },
+  "224211": {
+    "name": "PR1 individue - due 30 Sep pukul 14.00 WIB",
+    "section": "Topik 2: analisis sintak",
+    "type": "assign",
+    "url": "https://scele.cs.ui.ac.id/mod/assign/view.php?id=224211"
+  },
+  "224212": {
+    "name": "contoh grammar dan koleks himp LR1",
+    "section": "Topik 2: analisis sintak",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224212"
+  },
+  "224216": {
+    "name": "grammar expressi dan himp himp item LR1",
+    "section": "Topik 2: analisis sintak",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224216"
+  },
+  "224217": {
+    "name": "materi aturan semantik",
+    "section": "Topik 3 : Aturan semantik",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224217"
+  },
+  "224222": {
+    "name": "PR2 - kelompok, Due 7 Oktober jam 14.00 WIB",
+    "section": "Topik 2: analisis sintak",
+    "type": "assign",
+    "url": "https://scele.cs.ui.ac.id/mod/assign/view.php?id=224222"
   }
 }

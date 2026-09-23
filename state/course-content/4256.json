@@ -94,5 +94,17 @@
     "section": "Topic 4",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224026"
+  },
+  "224214": {
+    "name": "Software as a Service",
+    "section": "Topic 5",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224214"
+  },
+  "224215": {
+    "name": "Link zoom kuliah",
+    "section": "Topic 5",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=224215"
   }
 }
