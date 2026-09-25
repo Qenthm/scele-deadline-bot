@@ -33,5 +33,12 @@
     "courseFullname": "[Reg] Teknik Kompilator (A) Gasal 2026/2027",
     "modulename": "assign",
     "timesort": 1791356400
+  },
+  "-63346": {
+    "name": "Lab 5, 25 September 2025 is due",
+    "courseId": 4256,
+    "courseFullname": "[Reg] Komputasi Awan (A) Gasal 2026/2027",
+    "modulename": "lab",
+    "timesort": 1790614740
   }
 }
