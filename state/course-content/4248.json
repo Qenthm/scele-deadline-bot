@@ -82,5 +82,11 @@
     "section": "Topik 2: analisis sintak",
     "type": "assign",
     "url": "https://scele.cs.ui.ac.id/mod/assign/view.php?id=224222"
+  },
+  "224378": {
+    "name": "analisis semantik -- short notes",
+    "section": "Topik 3 : Aturan semantik",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224378"
   }
 }
