@@ -34,5 +34,17 @@
     "section": "Slides",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=223977"
+  },
+  "224497": {
+    "name": "Diagram Voronoi -- Incremental Algorithm",
+    "section": "Slides",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224497"
+  },
+  "224498": {
+    "name": "Worksheet 01",
+    "section": "Worksheet",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224498"
   }
 }
