@@ -112,5 +112,17 @@
     "section": "Topic 5",
     "type": "forum",
     "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=224322"
+  },
+  "224563": {
+    "name": "Cloud Storage",
+    "section": "Topic 6",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224563"
+  },
+  "224564": {
+    "name": "Link zoom kuliah",
+    "section": "Topic 6",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=224564"
   }
 }
