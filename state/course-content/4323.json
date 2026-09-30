@@ -46,5 +46,11 @@
     "section": "Worksheet",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224498"
+  },
+  "224582": {
+    "name": "Tata Tertib dan Kode Etik Ujian -- 01 Okt 2026",
+    "section": "Quiz 2 -- Kamis 1 okt 2026",
+    "type": "questionnaire",
+    "url": "https://scele.cs.ui.ac.id/mod/questionnaire/view.php?id=224582"
   }
 }
