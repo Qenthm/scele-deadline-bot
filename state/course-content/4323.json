@@ -52,5 +52,11 @@
     "section": "Quiz 2 -- Kamis 1 okt 2026",
     "type": "questionnaire",
     "url": "https://scele.cs.ui.ac.id/mod/questionnaire/view.php?id=224582"
+  },
+  "224583": {
+    "name": "Quiz 2 -- 1 Okt 2026",
+    "section": "Quiz 2 -- Kamis 1 okt 2026",
+    "type": "quiz",
+    "url": "https://scele.cs.ui.ac.id/mod/quiz/view.php?id=224583"
   }
 }
