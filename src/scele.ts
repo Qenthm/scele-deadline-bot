@@ -161,7 +161,20 @@ export class SceleClient {
   private async fetchRaw(path: string, init: RequestInit = {}): Promise<Response> {
     const headers = new Headers(init.headers);
     if (Object.keys(this.cookies).length) headers.set("cookie", cookieHeader(this.cookies));
-    return fetch(`${this.baseUrl}${path}`, { ...init, headers, redirect: "manual" });
+    // SCELE intermittently drops connections from GitHub Actions runners (connect timeouts),
+    // so retry network-level failures a few times before giving up. HTTP error statuses
+    // are returned as-is — only thrown fetch errors are retried.
+    const delaysMs = [5_000, 15_000, 30_000];
+    for (let attempt = 0; ; attempt++) {
+      try {
+        return await fetch(`${this.baseUrl}${path}`, { ...init, headers, redirect: "manual" });
+      } catch (err) {
+        if (attempt >= delaysMs.length) throw err;
+        const cause = err instanceof Error && err.cause instanceof Error ? err.cause.message : "";
+        console.warn(`fetch ${path} failed (${cause || err}), retrying in ${delaysMs[attempt] / 1000}s`);
+        await new Promise((resolve) => setTimeout(resolve, delaysMs[attempt]));
+      }
+    }
   }
 
   private absorbCookies(res: Response) {

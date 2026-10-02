@@ -305,6 +305,7 @@ async function main() {
 if (process.argv[1] && process.argv[1].endsWith("run-diff.ts")) {
   main().catch((err) => {
     console.error(err instanceof Error ? err.message : err);
+    if (err instanceof Error && err.cause) console.error("cause:", err.cause);
     process.exitCode = 1;
   });
 }
