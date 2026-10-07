@@ -130,5 +130,11 @@
     "section": "Topic 6",
     "type": "forum",
     "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=224653"
+  },
+  "224921": {
+    "name": "Serverless",
+    "section": "Topic 7",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224921"
   }
 }
