@@ -58,5 +58,11 @@
     "section": "Quiz 2 -- Kamis 1 okt 2026",
     "type": "quiz",
     "url": "https://scele.cs.ui.ac.id/mod/quiz/view.php?id=224583"
+  },
+  "224960": {
+    "name": "UTS sebelumnya",
+    "section": "UTS masa lalu",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224960"
   }
 }
