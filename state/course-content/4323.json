@@ -64,5 +64,11 @@
     "section": "UTS masa lalu",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224960"
+  },
+  "225014": {
+    "name": "Grup LINE Geometri Komputasional",
+    "section": "General",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=225014"
   }
 }
