@@ -70,5 +70,11 @@
     "section": "General",
     "type": "url",
     "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=225014"
+  },
+  "225026": {
+    "name": "Slide 2a: Divide and conquer algorithm for Convexhull",
+    "section": "Slides",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=225026"
   }
 }
