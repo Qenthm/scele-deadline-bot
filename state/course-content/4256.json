@@ -148,5 +148,11 @@
     "section": "Topic 7",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224982"
+  },
+  "225033": {
+    "name": "UTS Pilihan Ganda",
+    "section": "UTS",
+    "type": "quiz",
+    "url": "https://scele.cs.ui.ac.id/mod/quiz/view.php?id=225033"
   }
 }
