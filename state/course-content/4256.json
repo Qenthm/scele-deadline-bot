@@ -154,5 +154,11 @@
     "section": "UTS",
     "type": "quiz",
     "url": "https://scele.cs.ui.ac.id/mod/quiz/view.php?id=225033"
+  },
+  "225154": {
+    "name": "UTS Studi Kasus",
+    "section": "UTS",
+    "type": "assign",
+    "url": "https://scele.cs.ui.ac.id/mod/assign/view.php?id=225154"
   }
 }
