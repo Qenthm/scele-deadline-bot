@@ -208,5 +208,17 @@
     "section": "Week 8/9 - 12 Oct 2026: Midterm test period",
     "type": "page",
     "url": "https://scele.cs.ui.ac.id/mod/page/view.php?id=225113"
+  },
+  "225425": {
+    "name": "SECTION D: Discussion Forum Week 10",
+    "section": "Week 10 - 26/28 Oct 2026: Social Impacts and Our responsibility",
+    "type": "forum",
+    "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=225425"
+  },
+  "225436": {
+    "name": "ALL SECTIONS: Class session 26 Oct 2026 - Social Impact and Our Responsibility",
+    "section": "Week 10 - 26/28 Oct 2026: Social Impacts and Our responsibility",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=225436"
   }
 }
