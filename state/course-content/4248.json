@@ -88,5 +88,11 @@
     "section": "Topik 3 : Aturan semantik",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=224378"
+  },
+  "225412": {
+    "name": "maeteri RTE",
+    "section": "Topik 4: run time environtment",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=225412"
   }
 }
