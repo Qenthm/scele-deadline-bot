@@ -160,5 +160,11 @@
     "section": "UTS",
     "type": "assign",
     "url": "https://scele.cs.ui.ac.id/mod/assign/view.php?id=225154"
+  },
+  "225584": {
+    "name": "Microseevice",
+    "section": "Topic 9",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=225584"
   }
 }
