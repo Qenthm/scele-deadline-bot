@@ -6,13 +6,6 @@
     "modulename": "assign",
     "timesort": 1795453140
   },
-  "112498": {
-    "name": "Tahap 2 : Menjalankan Kode Paper Rujukan is due",
-    "courseId": 4253,
-    "courseFullname": "[Reg] Pemrosesan Bahasa Lisan (A) Gasal 2026/2027",
-    "modulename": "assign",
-    "timesort": 1793379540
-  },
   "114057": {
     "name": "SECTION D: Discussion Forum Week 10 is due",
     "courseId": 4234,
@@ -33,5 +26,12 @@
     "courseFullname": "[Reg] Teknik Kompilator (A) Gasal 2026/2027",
     "modulename": "assign",
     "timesort": 1794204000
+  },
+  "114182": {
+    "name": "Submission Link untuk TP1 is due",
+    "courseId": 4323,
+    "courseFullname": "[Reg] Geometri Komputasional (A) Gasal 2026/2027",
+    "modulename": "assign",
+    "timesort": 1793725140
   }
 }
