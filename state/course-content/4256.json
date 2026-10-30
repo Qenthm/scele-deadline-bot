@@ -162,9 +162,15 @@
     "url": "https://scele.cs.ui.ac.id/mod/assign/view.php?id=225154"
   },
   "225584": {
-    "name": "Microseevice",
+    "name": "Microservice",
     "section": "Topic 9",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=225584"
+  },
+  "225689": {
+    "name": "Lab 8, 30 Oktober 2026",
+    "section": "Topic 9",
+    "type": "forum",
+    "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=225689"
   }
 }

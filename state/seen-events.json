@@ -33,5 +33,12 @@
     "courseFullname": "[Reg] Geometri Komputasional (A) Gasal 2026/2027",
     "modulename": "assign",
     "timesort": 1793725140
+  },
+  "-63945": {
+    "name": "Lab 8, 30 Oktober 2026 is due",
+    "courseId": 4256,
+    "courseFullname": "[Reg] Komputasi Awan (A) Gasal 2026/2027",
+    "modulename": "lab",
+    "timesort": 1793638740
   }
 }
