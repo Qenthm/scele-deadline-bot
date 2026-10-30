@@ -179,6 +179,30 @@
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222188"
   },
+  "222189": {
+    "name": "4a Text-To-Speech - ID",
+    "section": "Text-to-Speech (TTS)",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222189"
+  },
+  "222190": {
+    "name": "4b TTS Waveform - ID",
+    "section": "Text-to-Speech (TTS)",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222190"
+  },
+  "222191": {
+    "name": "4c TTS Deep Learning -ID",
+    "section": "Text-to-Speech (TTS)",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222191"
+  },
+  "222192": {
+    "name": "4d TTS dengan Transfer Learning",
+    "section": "Text-to-Speech (TTS)",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222192"
+  },
   "223020": {
     "name": "Link Discord Pemrosesan Bahasa Lisan Semester Gasal 2026/2027",
     "section": "PBL-Pemrosesan Bahasa Lisan Gasal 2026/2027",
