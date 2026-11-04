@@ -33,5 +33,26 @@
     "courseFullname": "[Reg] Teknik Kompilator (A) Gasal 2026/2027",
     "modulename": "assign",
     "timesort": 1796230740
+  },
+  "114356": {
+    "name": "Feedback Perkuliahan Tengah Semester Gasal 2026/2027 (Geometri Komputasional) closes",
+    "courseId": 4323,
+    "courseFullname": "[Reg] Geometri Komputasional (A) Gasal 2026/2027",
+    "modulename": "feedback",
+    "timesort": 1794243540
+  },
+  "114386": {
+    "name": "Feedback Perkuliahan Tengah Semester Gasal 2026/2027 (Kowan) closes",
+    "courseId": 4256,
+    "courseFullname": "[Reg] Komputasi Awan (A) Gasal 2026/2027",
+    "modulename": "feedback",
+    "timesort": 1794243540
+  },
+  "114394": {
+    "name": "Feedback Perkuliahan Tengah Semester Gasal 2026/2027 (PBL) closes",
+    "courseId": 4253,
+    "courseFullname": "[Reg] Pemrosesan Bahasa Lisan (A) Gasal 2026/2027",
+    "modulename": "feedback",
+    "timesort": 1794243540
   }
 }

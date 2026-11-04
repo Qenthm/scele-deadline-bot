@@ -172,5 +172,11 @@
     "section": "Topic 9",
     "type": "forum",
     "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=225689"
+  },
+  "225940": {
+    "name": "Feedback Perkuliahan Tengah Semester Gasal 2026/2027 (Kowan)",
+    "section": "General",
+    "type": "feedback",
+    "url": "https://scele.cs.ui.ac.id/mod/feedback/view.php?id=225940"
   }
 }
