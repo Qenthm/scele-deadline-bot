@@ -178,5 +178,17 @@
     "section": "General",
     "type": "feedback",
     "url": "https://scele.cs.ui.ac.id/mod/feedback/view.php?id=225940"
+  },
+  "226054": {
+    "name": "Kubernetes",
+    "section": "Topic 10",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226054"
+  },
+  "226055": {
+    "name": "CloudNative",
+    "section": "Topic 10",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226055"
   }
 }
