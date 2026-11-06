@@ -190,5 +190,23 @@
     "section": "Topic 10",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226055"
+  },
+  "226166": {
+    "name": "Lab 9, 6 November 2026",
+    "section": "Topic 10",
+    "type": "forum",
+    "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=226166"
+  },
+  "226167": {
+    "name": "Link zoom lab",
+    "section": "Topic 10",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=226167"
+  },
+  "226168": {
+    "name": "video1182832458",
+    "section": "Topic 10",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226168"
   }
 }
