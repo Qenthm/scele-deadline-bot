@@ -94,5 +94,17 @@
     "section": "General",
     "type": "feedback",
     "url": "https://scele.cs.ui.ac.id/mod/feedback/view.php?id=225925"
+  },
+  "226359": {
+    "name": "Slide: Delaunay Triangulations",
+    "section": "Slides",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226359"
+  },
+  "226360": {
+    "name": "Worksheet 02",
+    "section": "Worksheet",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226360"
   }
 }

@@ -19,47 +19,5 @@
     "courseFullname": "[Reg] Teknik Kompilator (A) Gasal 2026/2027",
     "modulename": "assign",
     "timesort": 1796230740
-  },
-  "114356": {
-    "name": "Feedback Perkuliahan Tengah Semester Gasal 2026/2027 (Geometri Komputasional) closes",
-    "courseId": 4323,
-    "courseFullname": "[Reg] Geometri Komputasional (A) Gasal 2026/2027",
-    "modulename": "feedback",
-    "timesort": 1794243540
-  },
-  "114386": {
-    "name": "Feedback Perkuliahan Tengah Semester Gasal 2026/2027 (Kowan) closes",
-    "courseId": 4256,
-    "courseFullname": "[Reg] Komputasi Awan (A) Gasal 2026/2027",
-    "modulename": "feedback",
-    "timesort": 1794243540
-  },
-  "114394": {
-    "name": "Feedback Perkuliahan Tengah Semester Gasal 2026/2027 (PBL) closes",
-    "courseId": 4253,
-    "courseFullname": "[Reg] Pemrosesan Bahasa Lisan (A) Gasal 2026/2027",
-    "modulename": "feedback",
-    "timesort": 1794243540
-  },
-  "114446": {
-    "name": "Feedback Perkuliahan Tengah Semester Gasal 2026/2027 (Komputer & Masyarakat [A,B,C,D]) closes",
-    "courseId": 4234,
-    "courseFullname": "[Reg] Komputer & Masyarakat (A,B,C,D) Gasal 2026/2027",
-    "modulename": "feedback",
-    "timesort": 1794243540
-  },
-  "114499": {
-    "name": "Feedback Perkuliahan Tengah Semester Gasal 2026/2027 (Teknik Kompilator) closes",
-    "courseId": 4248,
-    "courseFullname": "[Reg] Teknik Kompilator (A) Gasal 2026/2027",
-    "modulename": "feedback",
-    "timesort": 1794243540
-  },
-  "-64094": {
-    "name": "Lab 9, 6 November 2026 is due",
-    "courseId": 4256,
-    "courseFullname": "[Reg] Komputasi Awan (A) Gasal 2026/2027",
-    "modulename": "lab",
-    "timesort": 1794243540
   }
 }
