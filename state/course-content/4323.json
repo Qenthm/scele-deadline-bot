@@ -112,5 +112,11 @@
     "section": "Tugas Kelompok 2",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226395"
+  },
+  "226420": {
+    "name": "Submission Link untuk TP2",
+    "section": "Tugas Kelompok 2",
+    "type": "assign",
+    "url": "https://scele.cs.ui.ac.id/mod/assign/view.php?id=226420"
   }
 }

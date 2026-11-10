@@ -1,11 +1,4 @@
 {
-  "112488": {
-    "name": "Tugas Individu 3 is due",
-    "courseId": 4253,
-    "courseFullname": "[Reg] Pemrosesan Bahasa Lisan (A) Gasal 2026/2027",
-    "modulename": "assign",
-    "timesort": 1794329940
-  },
   "112492": {
     "name": "Praktikum 2 - Text to Speech is due",
     "courseId": 4253,
@@ -19,5 +12,12 @@
     "courseFullname": "[Reg] Teknik Kompilator (A) Gasal 2026/2027",
     "modulename": "assign",
     "timesort": 1796230740
+  },
+  "114666": {
+    "name": "Submission Link untuk TP2 is due",
+    "courseId": 4323,
+    "courseFullname": "[Reg] Geometri Komputasional (A) Gasal 2026/2027",
+    "modulename": "assign",
+    "timesort": 1795539540
   }
 }
