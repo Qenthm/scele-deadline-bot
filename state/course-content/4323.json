@@ -106,5 +106,11 @@
     "section": "Worksheet",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226360"
+  },
+  "226395": {
+    "name": "Tugas Pemrograman 2 -- Batas waktu: 24 Nov 2026",
+    "section": "Tugas Kelompok 2",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226395"
   }
 }
