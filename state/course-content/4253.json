@@ -215,6 +215,24 @@
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222192"
   },
+  "222193": {
+    "name": "5a Dialogue Systems - Overview",
+    "section": "Spoken Language Dialogue System (SLDS)",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222193"
+  },
+  "222194": {
+    "name": "5b Dialogue Systems - Chatbots",
+    "section": "Spoken Language Dialogue System (SLDS)",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222194"
+  },
+  "222195": {
+    "name": "5c Dialogue Systems - Design & Ethics",
+    "section": "Spoken Language Dialogue System (SLDS)",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=222195"
+  },
   "223020": {
     "name": "Link Discord Pemrosesan Bahasa Lisan Semester Gasal 2026/2027",
     "section": "PBL-Pemrosesan Bahasa Lisan Gasal 2026/2027",
