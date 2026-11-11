@@ -130,5 +130,17 @@
     "section": "General",
     "type": "feedback",
     "url": "https://scele.cs.ui.ac.id/mod/feedback/view.php?id=226005"
+  },
+  "226436": {
+    "name": "Isikan kemajuan per minggu PR kelompok anda di sini",
+    "section": "Topik 6: func n proc tanpa parameter",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=226436"
+  },
+  "226438": {
+    "name": "materi func n proc with parms",
+    "section": "Topik 7: func n proc with parameters",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226438"
   }
 }
