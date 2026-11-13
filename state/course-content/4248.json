@@ -142,5 +142,35 @@
     "section": "Topik 7: func n proc with parameters",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226438"
+  },
+  "226715": {
+    "name": "video - prof n func tanpa parms bagian 1",
+    "section": "Topik 6: func n proc tanpa parameter",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=226715"
+  },
+  "226716": {
+    "name": "video - proc n func tanpa parms  bagian - 2",
+    "section": "Topik 6: func n proc tanpa parameter",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=226716"
+  },
+  "226717": {
+    "name": "video - proc n func tanpa parms - bagian 3",
+    "section": "Topik 6: func n proc tanpa parameter",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=226717"
+  },
+  "226718": {
+    "name": "vidio - proc n func tanpa parms --simulasi 1",
+    "section": "Topik 6: func n proc tanpa parameter",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=226718"
+  },
+  "226719": {
+    "name": "vidio - proc n func tanpa parms - simulasi 2",
+    "section": "Topik 6: func n proc tanpa parameter",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=226719"
   }
 }
