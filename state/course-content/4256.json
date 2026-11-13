@@ -204,7 +204,7 @@
     "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=226167"
   },
   "226168": {
-    "name": "video1182832458",
+    "name": "Rekaman zoom lab",
     "section": "Topic 10",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226168"
@@ -226,5 +226,11 @@
     "section": "Topic 11",
     "type": "forum",
     "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=226564"
+  },
+  "226576": {
+    "name": "Rekaman zoom lab",
+    "section": "Topic 11",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226576"
   }
 }
