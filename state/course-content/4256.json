@@ -214,5 +214,17 @@
     "section": "Topic 11",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226487"
+  },
+  "226563": {
+    "name": "Link zoom lab",
+    "section": "Topic 11",
+    "type": "url",
+    "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=226563"
+  },
+  "226564": {
+    "name": "Lab 10, 13 November 2026",
+    "section": "Topic 11",
+    "type": "forum",
+    "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=226564"
   }
 }

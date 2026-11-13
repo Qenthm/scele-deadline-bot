@@ -54,5 +54,12 @@
     "courseFullname": "[Reg] Komputer & Masyarakat (A,B,C,D) Gasal 2026/2027",
     "modulename": "assign",
     "timesort": 1794761940
+  },
+  "-64356": {
+    "name": "Lab 10, 13 November 2026 is due",
+    "courseId": 4256,
+    "courseFullname": "[Reg] Komputasi Awan (A) Gasal 2026/2027",
+    "modulename": "lab",
+    "timesort": 1794848340
   }
 }
