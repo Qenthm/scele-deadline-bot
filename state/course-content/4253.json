@@ -274,5 +274,17 @@
     "section": "PBL-Pemrosesan Bahasa Lisan Gasal 2026/2027",
     "type": "feedback",
     "url": "https://scele.cs.ui.ac.id/mod/feedback/view.php?id=225946"
+  },
+  "226834": {
+    "name": "Template Paper Word",
+    "section": "PROYEK AKHIR",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226834"
+  },
+  "226835": {
+    "name": "Template Paper Latex",
+    "section": "PROYEK AKHIR",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226835"
   }
 }
