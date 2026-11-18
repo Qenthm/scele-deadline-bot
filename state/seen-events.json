@@ -27,6 +27,13 @@
     "modulename": "assign",
     "timesort": 1795539540
   },
+  "112503": {
+    "name": "Mini Kuis 4 closes",
+    "courseId": 4253,
+    "courseFullname": "[Reg] Pemrosesan Bahasa Lisan (A) Gasal 2026/2027",
+    "modulename": "quiz",
+    "timesort": 1795061580
+  },
   "114149": {
     "name": "PR keloimpok, implementasi fungsi dan proc tanpa parameters, due 02 Des 2026, pukul 25:59 WIB is due",
     "courseId": 4248,
@@ -47,12 +54,5 @@
     "courseFullname": "[Reg] Teknik Kompilator (A) Gasal 2026/2027",
     "modulename": "assign",
     "timesort": 1795413600
-  },
-  "114907": {
-    "name": "Tata Tertib dan Kode Etik Ujian -- 19 Nov 2026 should be completed",
-    "courseId": 4323,
-    "courseFullname": "[Reg] Geometri Komputasional (A) Gasal 2026/2027",
-    "modulename": "questionnaire",
-    "timesort": 1795071600
   }
 }

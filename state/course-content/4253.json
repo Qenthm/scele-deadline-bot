@@ -131,6 +131,12 @@
     "type": "quiz",
     "url": "https://scele.cs.ui.ac.id/mod/quiz/view.php?id=222173"
   },
+  "222174": {
+    "name": "Mini Kuis 4",
+    "section": "Mini Kuis",
+    "type": "quiz",
+    "url": "https://scele.cs.ui.ac.id/mod/quiz/view.php?id=222174"
+  },
   "222175": {
     "name": "1a Introduction to Spoken Language Processing",
     "section": "Introduction",
