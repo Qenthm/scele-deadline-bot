@@ -172,5 +172,17 @@
     "section": "Topik 6: func n proc tanpa parameter",
     "type": "url",
     "url": "https://scele.cs.ui.ac.id/mod/url/view.php?id=226719"
+  },
+  "226908": {
+    "name": "maferi optimisasi",
+    "section": "Topik 8: Optimisasi",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226908"
+  },
+  "226909": {
+    "name": "Materi presentasi senin 23 November",
+    "section": "Topik 8: Optimisasi",
+    "type": "assign",
+    "url": "https://scele.cs.ui.ac.id/mod/assign/view.php?id=226909"
   }
 }
