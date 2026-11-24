@@ -130,5 +130,11 @@
     "section": "Quiz 3 -- Kamis 19 Nov 2026",
     "type": "quiz",
     "url": "https://scele.cs.ui.ac.id/mod/quiz/view.php?id=226959"
+  },
+  "227493": {
+    "name": "Slide: Robot Motion Planning",
+    "section": "Slides",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=227493"
   }
 }
