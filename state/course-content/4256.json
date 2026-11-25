@@ -186,7 +186,7 @@
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226054"
   },
   "226055": {
-    "name": "CloudNative",
+    "name": "Cloud Native",
     "section": "Topic 10",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226055"
@@ -210,7 +210,7 @@
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226168"
   },
   "226487": {
-    "name": "CloudAvailability",
+    "name": "Cloud Availability",
     "section": "Topic 11",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226487"
@@ -234,7 +234,7 @@
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226576"
   },
   "226940": {
-    "name": "CloudPeformance",
+    "name": "Cloud Peformance",
     "section": "Topic 12",
     "type": "resource",
     "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=226940"
@@ -244,5 +244,11 @@
     "section": "Topic 12",
     "type": "forum",
     "url": "https://scele.cs.ui.ac.id/mod/forum/view.php?id=227336"
+  },
+  "227545": {
+    "name": "Cloud Security",
+    "section": "Topic 13",
+    "type": "resource",
+    "url": "https://scele.cs.ui.ac.id/mod/resource/view.php?id=227545"
   }
 }
